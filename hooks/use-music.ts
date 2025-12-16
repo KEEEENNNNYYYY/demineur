@@ -10,10 +10,9 @@ export const useMusic = () => {
 
   useEffect(() => {
     if (volume === 0) {
-      player.remove();
+      player.pause();
     } else {
       player.volume = volume / 100;
-      player.remove();
       player.play();
     }
   }, [volume]);
