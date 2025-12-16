@@ -3,7 +3,7 @@ import { useOptionsStore } from "@/store/options-store";
 import { createMinesweeperBoard } from "@/utilities/create-board-values";
 import { revealEmptyZone } from "@/utilities/reveal-empty-zone";
 import { useState } from "react";
-import { Pressable, Text, Vibration, View } from "react-native";
+import { Pressable, ScrollView, Text, Vibration, View } from "react-native";
 import { indexStyles } from "../styles/index-styles";
 
 const Game = () => {
@@ -42,23 +42,29 @@ const Game = () => {
 
   return (
     <View>
-      {board.map((tab, index1) => (
-        <View
-          key={`view-horizontal-${index1}`}
-          style={indexStyles.horizontalView}
-        >
-          {tab.map((value, index2) => (
-            <Box
-              isGameOver={isGameOver}
-              index1={index1}
-              index2={index2}
-              onPress={handlePress}
-              value={value}
-              key={`box-${index2}`}
-            />
-          ))}
-        </View>
-      ))}
+      <ScrollView horizontal className="h-[70%]">
+        <ScrollView className="mx-[20]">
+          <View className="my-[20]">
+            {board.map((tab, index1) => (
+              <View
+                key={`view-horizontal-${index1}`}
+                style={indexStyles.horizontalView}
+              >
+                {tab.map((value, index2) => (
+                  <Box
+                    isGameOver={isGameOver}
+                    index1={index1}
+                    index2={index2}
+                    onPress={handlePress}
+                    value={value}
+                    key={`box-${index2}`}
+                  />
+                ))}
+              </View>
+            ))}
+          </View>
+        </ScrollView>
+      </ScrollView>
       {isGameOver && (
         <View style={indexStyles.textContainer}>
           <Text>Boom!!! Vous avez perdu</Text>

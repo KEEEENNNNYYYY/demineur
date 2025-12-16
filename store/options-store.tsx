@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-interface Level {
+export interface Level {
   cellWidth: number;
   bombs: number;
   name: "Facile" | "Medium" | "Difficile";
