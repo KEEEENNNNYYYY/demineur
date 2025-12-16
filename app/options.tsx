@@ -1,7 +1,8 @@
+import "@/global.css";
 import { useOptionsStore } from "@/store/options-store";
 import { useRouter } from "expo-router";
 import { useState } from "react";
-import { Button, Switch, Text, View } from "react-native";
+import { Pressable, ScrollView, Switch, Text, View } from "react-native";
 
 const Options = () => {
   const { vibrateOnLose, setState } = useOptionsStore();
@@ -18,16 +19,28 @@ const Options = () => {
   };
 
   return (
-    <View>
+    <ScrollView className="p-10">
       <View>
-        <Text>{vibrateOnLoseState ? "ON" : "OFF"}</Text>
-        <Switch
-          value={vibrateOnLoseState}
-          onValueChange={(v) => setVibrateOnLoseState(v)}
-        />
+        <View>
+          <Text className="font-bold">Vibrations</Text>
+        </View>
+        <View className="flex flex-row justify-between items-center">
+          <Text>{vibrateOnLoseState ? "Activé" : "Désactivé"}</Text>
+          <Switch
+            value={vibrateOnLoseState}
+            onValueChange={(v) => setVibrateOnLoseState(v)}
+          />
+        </View>
       </View>
-      <Button title="Sauvegarder" onPress={handlePressSaveButton} />
-    </View>
+      <View className="mt-20">
+        <Pressable
+          className="p-3 flex flex-row justify-center items-center rounded-lg bg-blue-400"
+          onPress={handlePressSaveButton}
+        >
+          <Text className="text-white">Sauvegarder</Text>
+        </Pressable>
+      </View>
+    </ScrollView>
   );
 };
 
