@@ -1,15 +1,14 @@
 import { Box } from "@/components/box";
+import { useOptionsStore } from "@/store/options-store";
 import { createMinesweeperBoard } from "@/utilities/create-board-values";
 import { revealEmptyZone } from "@/utilities/reveal-empty-zone";
 import { useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import { indexStyles } from "../styles/index-styles";
 
-const boardSize = 20;
-const bombCount = 40;
-
 const Game = () => {
-  const boardValue = createMinesweeperBoard(boardSize, bombCount);
+  const { level } = useOptionsStore();
+  const boardValue = createMinesweeperBoard(level.cellWidth, level.bombs);
 
   const [board, setBoard] = useState(boardValue);
   const [isGameOver, setIsGameOver] = useState(false);
@@ -36,7 +35,7 @@ const Game = () => {
   };
 
   const retry = () => {
-    setBoard(createMinesweeperBoard(boardSize, bombCount));
+    setBoard(createMinesweeperBoard(level.cellWidth, level.bombs));
     setIsGameOver(false);
   };
 
