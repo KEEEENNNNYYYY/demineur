@@ -16,7 +16,7 @@ const Home = () => {
         <RedirectButton href="/game" title="Nouveau jeu" />
         <RedirectButton href="/game" title="Continuer le jeu" />
         <RedirectButton href="/" title="Options" />
-        <RedirectButton href="/" title="Aide" />
+        <RedirectButton href="/help" title="Aide" />
       </View>
     </View>
   );
