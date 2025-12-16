@@ -19,7 +19,7 @@ interface Actions {
 const defaultValues: State = {
   level: { name: "Facile", bombs: 20, cellWidth: 10 },
   vibrateOnLose: true,
-  volume: 50,
+  volume: 0,
 };
 
 export const useOptionsStore = create<State & Actions>((set) => ({
