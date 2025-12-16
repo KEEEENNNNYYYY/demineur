@@ -3,11 +3,11 @@ import { useOptionsStore } from "@/store/options-store";
 import { createMinesweeperBoard } from "@/utilities/create-board-values";
 import { revealEmptyZone } from "@/utilities/reveal-empty-zone";
 import { useState } from "react";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, Text, Vibration, View } from "react-native";
 import { indexStyles } from "../styles/index-styles";
 
 const Game = () => {
-  const { level } = useOptionsStore();
+  const { level, vibrateOnLose } = useOptionsStore();
   const boardValue = createMinesweeperBoard(level.cellWidth, level.bombs);
 
   const [board, setBoard] = useState(boardValue);
@@ -19,6 +19,7 @@ const Game = () => {
 
     if (currentValue.isBomb) {
       setIsGameOver(true);
+      vibrateOnLose && Vibration.vibrate(200);
       return;
     }
 
