@@ -51,7 +51,6 @@ const Options = () => {
                 showsVerticalScrollIndicator={false}
             >
                 <View className="gap-6">
-                    {/* 🎵 VOLUME */}
                     <View className="rounded-3xl bg-white/50 backdrop-blur-xl border border-white/60 p-4 shadow-lg">
                         <Text className="font-bold text-purple-700 mb-3">
                             🎵 Musique — {volumeState}%
@@ -102,7 +101,6 @@ const Options = () => {
                         </View>
                     </View>
 
-                    {/* 🎮 NIVEAU */}
                     <View className="rounded-3xl bg-white/50 backdrop-blur-xl border border-white/60 p-4 shadow-lg">
                         <Text className="font-bold text-purple-700 mb-3">
                             🎮 Niveau de jeu
@@ -131,7 +129,6 @@ const Options = () => {
                         />
                     </View>
 
-                    {/* 💾 SAVE BUTTON */}
                     <Pressable
                         onPress={handleSave}
                         className="rounded-full overflow-hidden mt-6 active:scale-95"

@@ -80,7 +80,6 @@ const Game = () => {
                     </View>
                 )}
 
-                {/* RETRY BUTTON */}
                 {isGameOver && (
                     <Pressable
                         onPress={retry}
